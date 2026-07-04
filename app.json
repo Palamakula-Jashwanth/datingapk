@@ -21,6 +21,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.datingapp.expo",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
