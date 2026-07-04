@@ -1,120 +1,186 @@
-<h1 align="center">
-<img
-		width="250"
-		alt="Tinder Clone - Expo"
-		src="https://github.com/stevenpersia/tinder-expo/blob/master/preview/tinder-clone-logo.gif">
-</h1>
-<h3 align="center">
-	Tinder Clone - Expo
-</h3>
+# 💕 Dating App - Tinder Clone
 
-<p align="center">
-	<img src="https://github.com/stevenpersia/tinder-expo/blob/master/preview/tinderclone-preview.gif" width="300">
-</p>
+Complete dating app built with React Native + Expo and Node.js backend.
 
+## ✨ Features
 
-## Overview
+- 🔐 **Authentication** - JWT-based login/register
+- 👤 **User Profiles** - Photos, bio, interests
+- 💖 **Swipe Matching** - Like/dislike users
+- 💬 **Real-time Chat** - Socket.io messaging
+- 📍 **Smart Matching** - Location & interest-based algorithm
+- 📸 **Image Upload** - Cloudinary integration
+- 🎨 **Professional UI** - Modern, clean design
 
-⚠️ **This project use code of my previous repository [Tinder - React Native](https://github.com/stevenpersia/tinder-react-native). Because I don't have time to maintain this previous project made on React Native, I've decided to switch to Expo because it's more convenient to me. Sorry if you don't work with Expo (but give it a try).**
+## 🚀 Tech Stack
 
-**Perfect to start an Tinder Clone app.** 4 screens are availables : Explore, Matches, Messages and Profile. You'll find some components like Card Component to pass props and variant. No frameworks UI like Bootstrap or Material UI are used.
+### Frontend
+- React Native + Expo
+- TypeScript
+- Zustand (state management)
+- React Navigation
+- Axios
+- Socket.io Client
 
-- **Easy to use** 🤘
-- **Made with Expo** ⚡
-- **TypeScript supported** 🌞
+### Backend
+- Node.js + Express
+- MongoDB + Mongoose
+- Socket.io
+- JWT Authentication
+- Bcrypt (password hashing)
+- Cloudinary (image storage)
+- Multer (file uploads)
 
-This project was inspired by this [amazing Kishore's work on Dribbble](https://dribbble.com/shots/5631075-Dating-App-Sketch-Freebie-Day-334-365-Project365). Feel free to follow this guy because he does great stuff.
+## 📦 Installation
 
-## Demo
+### Prerequisites
+- Node.js 14+
+- npm or yarn
+- Expo Go app on your phone
+- MongoDB Atlas account (free)
+- Cloudinary account (free)
 
-You can try it here : https://expo.io/@stevenpersia/projects/tinder-expo
+### Setup Backend
 
-## Screenshots
+```bash
+cd server
+npm install
 
-<img
-width="205"
-alt="Capture 1"
-src="https://github.com/stevenpersia/tinder-expo/blob/master/preview/capture-1.png">
-<img
-width="205"
-alt="Capture 2"
-src="https://github.com/stevenpersia/tinder-expo/blob/master/preview/capture-2.png">
-<img
-width="205"
-alt="Capture 3"
-src="https://github.com/stevenpersia/tinder-expo/blob/master/preview/capture-3.png">
-<img
-width="205"
-alt="Capture 4"
-src="https://github.com/stevenpersia/tinder-expo/blob/master/preview/capture-4.png">
+# Configure environment
+cp .env.example .env
+# Edit .env with your MongoDB URI and Cloudinary credentials
 
-
-## Installation and usage
-
-Be sure, you have installed all dependencies and applications to run Expo project on your computer : [Getting Started with Expo](https://docs.expo.io/get-started/installation/).
-
-This project works fine on iOS and Android.
-
-
-### Running the project
-
-Clone this repository :
-
-```
-git clone https://github.com/stevenpersia/tinder-expo.git
-cd tinder-expo
+# Start server
+npm run dev
 ```
 
-Install packages :
+### Setup Frontend
 
-```
-yarn
-```
+```bash
+npm install
 
-When installation is complete, run it :
-
-```
-yarn start
+# Start Expo
+npm start
 ```
 
+## 🔧 Configuration
 
-## Props
+### MongoDB Setup
+1. Create account at https://mongodb.com/cloud/atlas
+2. Create free cluster (M0 tier)
+3. Get connection string
+4. Update `server/.env`:
+   ```
+   MONGODB_URI=your_connection_string
+   ```
 
-### CardItem
+### Cloudinary Setup
+1. Create account at https://cloudinary.com
+2. Get credentials from dashboard
+3. Update `server/.env`:
+   ```
+   CLOUDINARY_CLOUD_NAME=xxx
+   CLOUDINARY_API_KEY=xxx
+   CLOUDINARY_API_SECRET=xxx
+   ```
 
-| Name           | Type     | Required | Description                                               | Example                                             |
-| -------------- | -------- | -------- | --------------------------------------------------------- | --------------------------------------------------- |
-| `image`        | string   | Yes      | Picture of member.                                        | `image="https://..."`                               |
-| `name`         | string   | Yes      | Name of member.                                           | `name="John Doe"`                                   |
-| `description`  | string   | Yes      | Description of member.                                    | `description="Full-time Traveller. Globe Trotter."` |
-| `matches`      | string   | Yes      | Match percentage.                                         | `matches="95"`                                      |
-| `hasActions`   | boolean  | No       | Display actions buttons (Like, Dislike, ...).             | `actions`                                           |
-| `isOnline`     | string   | No       | Display online or offline badge (`Online` and `Offline`). | `status="Online"`                                   |
-| `hasVariant`   | boolean  | No       | Display another style of card (used for Matches screen).  | `variant`                                           |
+### Frontend API URL
+Update `api/config.ts` based on your setup:
+- Android Emulator: `http://10.0.2.2:5000/api`
+- iOS Simulator: `http://localhost:5000/api`
+- Physical Device: `http://YOUR_IP:5000/api`
 
-### Message
+## 📱 Running the App
 
-| Name          | Type   | Required | Description             | Example                                                                                      |
-| ------------- | ------ | -------- | ----------------------- | -------------------------------------------------------------------------------------------- |
-| `image`       | string | Yes      | Picture of member.      | `image="https://..."`                                                                        |
-| `name`        | string | Yes      | Name of member.         | `name="John Doe"`                                                                            |
-| `lastMessage` | string | Yes      | Last message of member. | `lastMessage="You want order in Gotham. Batman must take off his mask and turn himself in."` |
+1. Start backend: `cd server && npm run dev`
+2. Start frontend: `npm start`
+3. Scan QR code with Expo Go app
+4. Register and start swiping!
 
+## 📚 API Documentation
 
-### ProfileItem
+### Authentication
+- `POST /api/auth/register` - Register user
+- `POST /api/auth/login` - Login
+- `POST /api/auth/logout` - Logout
+- `GET /api/auth/me` - Get current user
 
-| Name       | Type   | Required | Description                 | Example                                    |
-| ---------- | ------ | -------- | --------------------------- | ------------------------------------------ |
-| `name`     | string | Yes      | Name of member.             | `name="John Doe"`                          |
-| `matches`  | string | Yes      | Match percentage.           | `matches="95"`                             |
-| `age`      | string | No       | Age of member.              | `age="25"`                                 |
-| `location` | string | No       | Location of member.         | `location="Paris, France"`                 |
-| `info1`    | string | No       | More information of member. | `info1="Straight, Single"`                 |
-| `info2`    | string | No       | More information of member. | `info2="Tea Totaller & Loves Photography"` |
-| `info3`    | string | No       | More information of member. | `info3="Beaches, Mountain & Coffee"`       |
-| `info4`    | string | No       | More information of member. | `info4="Last seen: 23h ago"`               |
+### Users
+- `GET /api/users/discover` - Get discover feed
+- `PUT /api/users/profile` - Update profile
+- `POST /api/users/images` - Upload images
+- `GET /api/users/:id` - Get user by ID
 
+### Matches
+- `POST /api/matches/like/:userId` - Like user
+- `POST /api/matches/dislike/:userId` - Dislike user
+- `GET /api/matches` - Get matches
+- `DELETE /api/matches/:userId` - Unmatch
 
-## Star, Fork, Clone & Contribute
+### Chats
+- `GET /api/chats` - Get all chats
+- `GET /api/chats/:chatId/messages` - Get messages
+- `POST /api/chats/:chatId/messages` - Send message
 
-Feel free to contribute on this repository. If my work helps you, please give me back with a star. This means a lot to me and keeps me going!
+## 🏗️ Project Structure
+
+```
+├── api/                  # API client layer
+├── assets/               # Images, styles
+├── components/           # Reusable UI components
+├── screens/              # App screens
+├── store/                # Zustand state management
+├── server/               # Backend
+│   ├── src/
+│   │   ├── config/       # Database, Cloudinary
+│   │   ├── controllers/  # API logic
+│   │   ├── middlewares/  # Auth, upload, errors
+│   │   ├── models/       # Database models
+│   │   ├── routes/       # API routes
+│   │   ├── socket/       # Real-time messaging
+│   │   └── utils/        # Helpers
+│   └── package.json
+└── package.json
+```
+
+## 🎯 Current Status
+
+**Production Ready: 88%**
+
+### ✅ Complete
+- Backend API (15 endpoints)
+- Authentication system
+- Database models
+- Real-time messaging
+- State management
+- Login/Register screens
+- Navigation
+
+### 🔄 In Progress
+- Screen integration with API
+- Chat detail screen
+- Profile edit screen
+
+## 🚀 Deployment
+
+### Backend
+- Railway (recommended - free tier)
+- Heroku
+- DigitalOcean
+- AWS EC2
+
+### Frontend
+- Expo EAS Build
+- App Store / Play Store
+
+## 📄 License
+
+MIT
+
+## 👤 Author
+
+Jashwanth Palamakula
+
+## 🙏 Acknowledgments
+
+Built with ❤️ using modern React Native and Node.js best practices
