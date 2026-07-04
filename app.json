@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "tinder-expo",
-    "slug": "tinder-expo",
+    "name": "Dating App",
+    "slug": "dating-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e2077263-7012-44b5-9d16-fd063a44f391"
+      }
     }
   }
 }
