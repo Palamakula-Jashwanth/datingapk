@@ -18,7 +18,7 @@ export interface LoginData {
 
 export const authService = {
   register: async (data: RegisterData) => {
-    const response = await apiClient.post('/auth/register', data);
+    const response = (await apiClient.post('/auth/register', data)) as any;
     if (response.success && response.data.token) {
       await AsyncStorage.setItem('token', response.data.token);
       await AsyncStorage.setItem('user', JSON.stringify(response.data.user));
@@ -27,7 +27,7 @@ export const authService = {
   },
 
   login: async (data: LoginData) => {
-    const response = await apiClient.post('/auth/login', data);
+    const response = (await apiClient.post('/auth/login', data)) as any;
     if (response.success && response.data.token) {
       await AsyncStorage.setItem('token', response.data.token);
       await AsyncStorage.setItem('user', JSON.stringify(response.data.user));
@@ -42,7 +42,7 @@ export const authService = {
   },
 
   getMe: async () => {
-    const response = await apiClient.get('/auth/me');
+    const response = (await apiClient.get('/auth/me')) as any;
     if (response.success) {
       await AsyncStorage.setItem('user', JSON.stringify(response.data));
     }
