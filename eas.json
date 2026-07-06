@@ -6,13 +6,19 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "node": "16.18.1"
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "node": "16.18.1",
+      "android": {
+        "buildType": "apk"
+      }
     },
     "production": {
       "autoIncrement": true,
+      "node": "16.18.1",
       "env": {
         "YARN_ENABLE_HARDLINKS": "false"
       }
